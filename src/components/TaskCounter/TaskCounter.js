@@ -6,7 +6,7 @@ export const TaskCounter = () => {
 
   const tasks = useSelector(getTasks);
 
-  const count = tasks.reduce(
+  const count = tasks.items.reduce(
     (acc, tasks) => {
       if(tasks.completed){
         acc.completed += 1;
