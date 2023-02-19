@@ -1,5 +1,7 @@
-const tasks = require('./tasks')
+const tasks = require('./tasks');
+const auth = require('./auth');
 
 module.exports = {
-    tasks
+    tasks,
+    auth
 }
