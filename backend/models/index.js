@@ -1,4 +1,4 @@
-const { Task, joiTaskSchema } = require("./task");
+const { Task, joiTaskSchema, joiTaskCompletedSchema } = require("./task");
 const { User, joiRegisterSchema, joiLoginSchema } = require("./user");
 
 module.exports = {
@@ -7,4 +7,5 @@ module.exports = {
   joiTaskSchema,
   joiRegisterSchema,
   joiLoginSchema,
+  joiTaskCompletedSchema,
 };

@@ -1,22 +1,35 @@
 const { Task } = require("../../models");
 
 async function removeTask(req, res) {
-    const {id} = req.params;
-    const deletedTask = await Task.findByIdAndRemove(id);
+  const { _id } = req.user;
+  const { taskId } = req.params;
 
-    if (!deletedTask) {
-        res.status(404).json({
-            code:404,
-            status: 'not found'
-        })
-    }
+  const task = await Task.findOne({ owner: _id, _id: taskId });
 
-    res.status(200).json({
-        code:200,
-        status: 'syccess',
-        result: deletedTask,
-        message: "The task has been deleted"
-    })
-};
+  if (!task) {
+    res.status(404).json({
+      status: "not found",
+      code: 404,
+      message: "Not found",
+    });
+    throw new Error();
+  }
 
-module.exports = {removeTask}
+  const deletedTask = await Task.findByIdAndRemove(taskId);
+
+  if (!deletedTask) {
+    res.status(404).json({
+      code: 404,
+      status: "not found",
+    });
+  }
+
+  res.status(200).json({
+    code: 200,
+    status: "success",
+    result: deletedTask,
+    message: "The task has been deleted",
+  });
+}
+
+module.exports = { removeTask };

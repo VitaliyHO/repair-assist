@@ -2,16 +2,17 @@ const express = require("express");
 const { tasks: ctrl } = require("../../controllers");
 const { controlWrapper } = require("../../middlewares/controlWrapper");
 const { validation } = require("../../middlewares");
-const { joiTaskSchema } = require("../../models");
+const { joiTaskSchema, joiTaskCompletedSchema } = require("../../models");
+const authTokenValidation = require("../../middlewares/authTokenValid");
 
 const router = express.Router();
 
-router.get('/', controlWrapper(ctrl.getAll));
+router.get('/', authTokenValidation, controlWrapper(ctrl.getAll));
 
-router.post("/", validation(joiTaskSchema), controlWrapper(ctrl.addTask));
+router.post("/", authTokenValidation, validation(joiTaskSchema), controlWrapper(ctrl.addTask));
 
-router.patch("/:id/completed", controlWrapper(ctrl.updateTask));
+router.patch("/:taskId/completed", validation(joiTaskCompletedSchema), authTokenValidation, controlWrapper(ctrl.updateTask));
 
-router.delete("/:id", controlWrapper(ctrl.removeTask));
+router.delete("/:taskId", authTokenValidation, controlWrapper(ctrl.removeTask));
 
 module.exports = router ;

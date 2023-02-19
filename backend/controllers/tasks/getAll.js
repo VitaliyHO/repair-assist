@@ -1,11 +1,12 @@
 const { Task } = require("../../models");
 
 async function getAll(req, res) {
-  const tasks = await Task.find({});
+  const {_id} = req.user;
+  const tasks = await Task.find({owner: _id});
 
-  if (!tasks) {
-    res.status(400).json({
-      code: 400,
+  if (!tasks || !tasks.length) {
+    res.status(404).json({
+      code: 404,
       status: "not found",
     });
   }
