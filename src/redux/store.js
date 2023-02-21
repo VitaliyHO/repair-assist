@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import { tasksReducer } from "./tasksSlice";
 import { filtersReducer } from "./filtersSlice";
 import { tasksReducer } from "./tasks/slice";
+import { authReducer } from "./auth/slice";
+import storage from 'redux-persist/lib/storage';
+import persistReducer from 'redux-persist/es/persistReducer';
 import {
   persistStore,
   FLUSH,
@@ -12,10 +14,17 @@ import {
   REGISTER,
 } from "redux-persist";
 
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token']
+}
+
 export const store = configureStore({
   reducer: {
     tasks: tasksReducer,
     filters: filtersReducer,
+    auth: persistReducer(authPersistConfig, authReducer)
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
