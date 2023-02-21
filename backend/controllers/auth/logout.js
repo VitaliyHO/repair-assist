@@ -13,7 +13,7 @@ async function logout(req, res) {
     throw new Error();
   }
 
-  res.status(204);
+  res.status(204).json({message: "Logout success"});
 }
 
 module.exports = { logout };

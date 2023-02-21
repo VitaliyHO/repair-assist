@@ -7,7 +7,7 @@ const authTokenValidation = require("../../middlewares/authTokenValid");
 
 const router = express.Router();
 
-router.get('/', authTokenValidation, controlWrapper(ctrl.getAll));
+router.get("/", authTokenValidation, controlWrapper(ctrl.getAll));
 
 router.post("/", authTokenValidation, validation(joiTaskSchema), controlWrapper(ctrl.addTask));
 

@@ -11,6 +11,8 @@ router.post("/register", validation(joiRegisterSchema), controlWrapper(ctrl.regi
 
 router.post("/login", validation(joiLoginSchema), controlWrapper(ctrl.login));
 
+router.get("/current", authTokenValidation, controlWrapper(ctrl.getCurrent));
+
 router.get("/logout", authTokenValidation, controlWrapper(ctrl.logout));
 
 

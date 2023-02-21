@@ -26,10 +26,12 @@ async function register(req, res) {
     throw new Error();
   }
 
+  const {name, typeOfUser} = newUser;
+
   res.status(201).json({
     code: 201,
     status: "create",
-    result: newUser,
+    user: {name, email, typeOfUser},
   });
 }
 
