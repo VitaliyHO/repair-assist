@@ -29,9 +29,10 @@ export const addTask = createAsyncThunk(
 
 export const updateTask = createAsyncThunk(
   "tasks/updateTask",
-  async (id, thunkAPI) => {
+  async (credentiials, thunkAPI) => {
     try {
-      const response = await axios.patch(`/tasks/${id}/completed`);
+      const {id, status} = credentiials;
+      const response = await axios.patch(`/tasks/${id}/completed`, {completedStatus: status});
       return response.data.result;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
