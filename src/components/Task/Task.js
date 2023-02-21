@@ -10,7 +10,6 @@ export const Task = ({ task }) => {
   const handleDelete = () => dispatch(deleteTask(task._id));
 
   const handleToggle = (e) => {
-    console.log(e.target.checked);
     const status = e.target.checked;
     dispatch(updateTask({id: task._id, status}))};
 
