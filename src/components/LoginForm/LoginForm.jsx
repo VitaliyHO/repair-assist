@@ -10,7 +10,6 @@ export const LoginForm = () => {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    console.log(userEmail, userPass);
     dispatch(login({ email: userEmail, password: userPass }));
 
     reset();
@@ -28,12 +27,14 @@ export const LoginForm = () => {
         name="email"
         value={userEmail}
         onChange={(e) => setUserEmail(e.target.value)}
+        required
       />
       <input
         type="password"
         name="pass"
         value={userPass}
         onChange={(e) => setUserPass(e.target.value)}
+        required
       />
       <button type="submit">LogIn</button>
     </form>
