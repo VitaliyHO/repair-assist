@@ -26,6 +26,7 @@ export const LoginForm = () => {
         type="email"
         name="email"
         value={userEmail}
+        placeholder="E-mail"
         onChange={(e) => setUserEmail(e.target.value)}
         required
       />
@@ -33,6 +34,7 @@ export const LoginForm = () => {
         type="password"
         name="pass"
         value={userPass}
+        placeholder="Password"
         onChange={(e) => setUserPass(e.target.value)}
         required
       />

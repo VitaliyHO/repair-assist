@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { statusFilters } from "./constants";
-import { persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
 
 const filtersInitialState = {
   status: statusFilters.all,

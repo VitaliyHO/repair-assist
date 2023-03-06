@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Task } from "../Task/Task";
-import { getTasks, getStatusFilter } from "../../redux/selectors";
 import css from "./TaskList.module.css";
-import { statusFilters } from "../../redux/constants";
 import { selectTasks } from "../../redux/tasks/selectors";
 import { useEffect } from "react";
 import { fetchTasks } from "../../redux/tasks/operations";
+import { getStatusFilter } from "../../redux/filter/selectors";
+import { statusFilters } from "../../redux/filter/constants";
 
 const getVisibleTasks = (tasks, statusFilter) => {
   switch (statusFilter) {
