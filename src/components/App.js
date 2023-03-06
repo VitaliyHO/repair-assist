@@ -29,10 +29,5 @@ export const App = () => {
         <Route path="/tasks" element={<PrivateRoute component={Tasks} redirectTo="/login"/>}/>
       </Route>
     </Routes>
-    // <Layout>
-    //   <AppBar />
-    //   <TaskForm />
-    //   <TaskList />
-    // </Layout>
   );
 };

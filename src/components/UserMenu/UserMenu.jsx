@@ -15,6 +15,7 @@ export const UserMenu = () => {
     <>
       <NavLink to="/tasks">Tasks</NavLink>
       <p>{user.name}</p>
+      <p>{user.typeOfUser}</p>
       <button type="button" onClick={handleLogOut}>LogOut</button>
     </>
   );

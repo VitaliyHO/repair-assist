@@ -8,7 +8,7 @@ export const Navigation = () => {
 
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/">repair assist</NavLink>
       {isLoggedIn ? <UserMenu/> : <AuthNav/>}
     </nav>
   );

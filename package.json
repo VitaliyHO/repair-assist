@@ -1,8 +1,8 @@
 {
-  "name": "to-do-list",
+  "name": "repair-assist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://VitaliyHO.github.io/to-do-list/",
+  "homepage": "https://VitaliyHO.github.io/repair-assist/",
   "dependencies": {
     "@redux-devtools/extension": "^3.2.3",
     "@reduxjs/toolkit": "^1.9.0",
